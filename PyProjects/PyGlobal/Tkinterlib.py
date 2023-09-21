@@ -1,4 +1,12 @@
+from tkinter import messagebox
 import tkinter
+
+def OnClickSubmit():
+    name=name_textbox.get()
+    email=Email_textbox.get()
+    ph=Phone_textbox.get()
+    messagebox.showinfo('Captured data Is :',email)
+
 root=tkinter.Tk()
 root.geometry("300x200")
 root.configure(bg="#ffcccb")
@@ -23,7 +31,7 @@ Phone_label.pack(anchor=tkinter.W,padx=10)
 Phone_textbox=tkinter.Entry(root)
 Phone_textbox.pack(anchor=tkinter.W,padx=10)
 
-submit_button=tkinter.Button(root,text="Submit")
+submit_button=tkinter.Button(root,text="Submit",command=OnClickSubmit)
 submit_button.pack(anchor=tkinter.W,padx=10)
 
 root.mainloop()
