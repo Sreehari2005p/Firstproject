@@ -1,5 +1,5 @@
 import tkinter
-from tkinter import messagebox
+from tkinter import messagebox,ttk
 from openpyxl import load_workbook
 root=tkinter.Tk()
 File_Path=r"C:\Users\Nijil\OneDrive\Desktop\Data Science\Book1.xlsx"
@@ -10,15 +10,16 @@ def On_Click_Submit():
     name=Name_Tbox.get()
     email=Email_Tbox.get()
     phone=Ph_Tbox.get() 
+    Branch=Branch_Dropdown.get()
 
-    if name and email and phone:
-        B.append([name,email,phone])
-        A.save(File_Path)
+    if name and email and phone and Branch:
+        B.append([name,email,phone,Branch])
+        A.save(File_Path)   
         messagebox.showinfo("Status","Data Submitted")
     else:
         messagebox.showwarning("Warning","Pls fill All the field")
 
-root.geometry("300x200")
+root.geometry("300x300")
 root.title("Registration Form")
 root.configure(bg="#ffcccb")
 Lbl_=tkinter.Label(root,text="Registration  Form")
@@ -45,9 +46,19 @@ Lbl_ph.configure(bg="#ffcccb")
 Ph_Tbox=tkinter.Entry(root)
 Ph_Tbox.pack(anchor=tkinter.W,padx=20)
 
+Branch_Label=tkinter.Label(root,text="Select branch")
+Branch_Label.pack(anchor=tkinter.W,padx=20)
+Branch_Label.configure(bg="#ffcccb")
+
+
+choices=['CS','EC','ME']
+Branch_Dropdown=ttk.Combobox(root,values=choices)
+Branch_Dropdown.pack(anchor=tkinter.W,padx=20)
+
 Lbl_1=tkinter.Label(root,text=" ")
 Lbl_1.configure(bg="#ffcccb")
 Lbl_1.pack()
+
 
 Submit_button=tkinter.Button(root,text="Submit",command=On_Click_Submit)
 Submit_button.pack(anchor=tkinter.W,padx=30)
