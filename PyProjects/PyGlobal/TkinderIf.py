@@ -11,9 +11,10 @@ def On_Click_Submit():
     email=Email_Tbox.get()
     phone=Ph_Tbox.get() 
     Branch=Branch_Dropdown.get()
+    chkval=agree_value.get()
 
-    if name and email and phone and Branch:
-        B.append([name,email,phone,Branch])
+    if name and email and phone and Branch and chkval==1:
+        B.append([name,email,phone,Branch,'Yes'])
         A.save(File_Path)   
         messagebox.showinfo("Status","Data Submitted")
     else:
@@ -58,9 +59,13 @@ Branch_Dropdown.pack(anchor=tkinter.W,padx=20)
 Lbl_1=tkinter.Label(root,text=" ")
 Lbl_1.configure(bg="#ffcccb")
 Lbl_1.pack()
+# Checkbox
+agree_value=tkinter.IntVar() # uncheck =0,check=1
+agree_checkbox=ttk.Checkbutton(root,text="Do You Agree With Terms&Condition",variable=agree_value)
 
+agree_checkbox.pack(anchor=tkinter.W,padx=20,pady=5)
 
 Submit_button=tkinter.Button(root,text="Submit",command=On_Click_Submit)
-Submit_button.pack(anchor=tkinter.W,padx=30)
+Submit_button.pack(anchor=tkinter.W,pady=5,padx=30)
 
 root.mainloop()
