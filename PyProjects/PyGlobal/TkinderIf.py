@@ -1,11 +1,14 @@
 import tkinter
 from tkinter import messagebox,ttk
+from tkinter import PhotoImage
 from openpyxl import load_workbook
+
 root=tkinter.Tk()
+#   image_path=PhotoImage(file=r"C:\Users\Nijil\OneDrive\Desktop\plan\PIC1.bmp")
 File_Path=r"C:\Users\Nijil\OneDrive\Desktop\Data Science\Book1.xlsx"
+
 A=load_workbook(File_Path)
 B=A["Registration"]
-
 def On_Click_Submit():
     name=Name_Tbox.get()
     email=Email_Tbox.get()
